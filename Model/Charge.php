@@ -433,7 +433,9 @@ class Charge extends AbstractCheckout
     if ($invoice) { 
       if ($this->_order->getCanSendNewEmailFlag()) {
         try {
-          $this->_orderSender->send($this->_order);
+          /* Comment out send as per suggestion in https://github.com/zipMoney/magento2/issues/72 to fix dup email
+            $this->_orderSender->send($this->_order);
+          */
         } catch (\Exception $e) {
           $this->_logger->critical($e);
         }
